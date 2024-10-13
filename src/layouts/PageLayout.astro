@@ -1,5 +1,6 @@
 ---
 import Layout from "./Layout.astro";
+import SpotifyPlay from "../components/SpotifyPlay.astro";
 
 const { title } = Astro.props;
 ---
@@ -55,8 +56,11 @@ const { title } = Astro.props;
         <slot />
       </div>
     </div>
-    <footer class="flex items-center mt-auto w-full text-sm font-news pt-10">
+    <footer
+      class="flex items-center justify-between mt-auto w-full text-sm font-news pt-10"
+    >
       <p class="text-neutral-400">2024&copy; Kebabhan</p>
+      <SpotifyPlay />
     </footer>
   </main>
 </Layout>

@@ -1,0 +1,48 @@
+---
+import MarqueeText from "./Marquee.astro";
+
+export interface Props {
+  title: string;
+  artist: string;
+}
+
+const { title, artist } = Astro.props;
+---
+
+<div class="relative">
+  <!-- Shadow text element to detect width of the title -->
+  <div
+    id="titleRef"
+    class="absolute opacity-0 pointer-events-none flex items-center whitespace-nowrap"
+    aria-hidden="true"
+  >
+    <p>{title}</p>
+    <span>-</span>
+    <p>{artist}</p>
+  </div>
+
+  <div
+    id="marqueeContainer"
+    class="flex overflow-hidden max-w-[115px] relative"
+  >
+    <MarqueeText>
+      <div class="flex items-center gap-1 whitespace-nowrap">
+        <p>{title}</p>
+        <span>-</span>
+        <p class="text-neutral-400">{artist}</p>
+      </div>
+    </MarqueeText>
+  </div>
+</div>
+
+<style>
+  #marqueeContainer {
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      #000 15%,
+      #000 85%,
+      transparent 100%
+    );
+  }
+</style>

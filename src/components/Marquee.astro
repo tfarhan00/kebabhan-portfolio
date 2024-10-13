@@ -1,0 +1,54 @@
+---
+export interface Props {
+  enabled?: boolean;
+}
+
+const { enabled = true } = Astro.props;
+---
+
+{
+  !enabled ? (
+    <slot />
+  ) : (
+    // If marquee is enabled, render the content twice for scrolling
+    <div class="marquee">
+      <div class="marquee__content scroll">
+        <slot />
+      </div>
+      <div class="marquee__content scroll" aria-hidden="true">
+        <slot />
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .marquee {
+    --gap: 1rem;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+  }
+
+  .marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--gap);
+  }
+
+  .scroll {
+    animation: scroll 10s linear infinite;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+</style>

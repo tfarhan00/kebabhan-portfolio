@@ -1,0 +1,44 @@
+---
+import { GET } from "../pages/api/spotify.json";
+
+const res = await GET(Astro);
+const song = await res.json();
+import SpotifyTitleMarquee from "./SpotifyTitleMarquee.astro";
+---
+
+{
+  song && (
+    <a
+      href={song.songUrl}
+      target="_blank"
+      class="flex items-center gap-3 pl-1.5 pr-2 py-1.5 rounded-md text-xs hover:opacity-80"
+    >
+      <div class="size-5 overflow-hidden relative">
+        <img
+          src={song.coverUrl}
+          alt={song.title}
+          sizes="(max-width:768px) 50px, 60px"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="flex items-center gap-1">
+        <SpotifyTitleMarquee title={song.title} artist={song.artist} />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-arrow-up-right"
+        >
+          <path d="M7 7h10v10" />
+          <path d="M7 17 17 7" />
+        </svg>
+      </div>
+    </a>
+  )
+}
