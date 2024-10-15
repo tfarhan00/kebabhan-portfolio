@@ -1,6 +1,7 @@
 ---
 import { experiences } from "../data/experiences";
 import { works } from "../data/works";
+import { stacks } from "../data/stacks";
 import PageLayout from "../layouts/PageLayout.astro";
 ---
 
@@ -8,13 +9,12 @@ import PageLayout from "../layouts/PageLayout.astro";
   <!-- Briefing -->
   <div class="w-full grid grid-cols-10">
     <div
-      class="col-span-10 xl:col-span-4 flex flex-col gap-6 font-news text-sm tracking-slight leading-5 mt-6 xl:mt-0"
+      class="col-span-10 xl:col-span-4 flex flex-col gap-6 font-news text-sm tracking-slight leading-5 mt-6 xl:mt-0 relative"
     >
       <p>
         As you might guess, I'm a software engineer. Software Enginner? Yes. How
-        it is different from a programmer? Well, a software engineer is someone
-        who takes the principles of engineering, adds a bit of problem-solving,
-        and turns it into software that (hopefully) works.
+        it is different from a programmer? Actually, it's not. It's just a
+        fancier title.
       </p>
       <p>
         TL;DR I do fullstack development, but I pick software engineer title
@@ -24,6 +24,55 @@ import PageLayout from "../layouts/PageLayout.astro";
         Currently focusing on Web3 stack for web and bot development (Telegram,
         Discord), but I'm open to work for any of the hottest things around.
       </p>
+
+      <div>
+        <img
+          src="/my-bg.png"
+          alt="Kebabhan Speech"
+          class="w-full object-contain"
+        />
+        <div class="flex items-start text-neutral-400 mt-4 gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-corner-down-right"
+            ><polyline points="15 10 20 15 15 20"></polyline><path
+              d="M4 4v7a4 4 0 0 0 4 4h12"></path></svg
+          >
+          <p class="text-xs text-neutral-400">
+            Me giving little speech at ETHGlobal Singapore <br />with my amazing
+            team <a
+              target="_blank"
+              href="https://engowl.studio"
+              class="hover:underline text-neutral-500 inline-flex items-center"
+            >
+              @engowl.studio
+              <span class="inline-block">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-up-right"
+                  ><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg
+                >
+              </span>
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
     <!-- Other Details -->
     <div class="col-span-10 xl:col-span-6 mt-6 xl:mt-0">
@@ -95,6 +144,20 @@ import PageLayout from "../layouts/PageLayout.astro";
                   </svg>
                   <p class="flex gap-4 relative items-start">{work.title}</p>
                 </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Stack -->
+        <div class="flex flex-col gap-5 w-full max-w-md mt-8">
+          <h1 class="font-medium font-manrope text-lg">Stacks</h1>
+          <div class="flex flex-wrap gap-2 font-news relative text-sm max-w-xs">
+            {
+              stacks.map((stack) => (
+                <div class="flex items-center gap-1 hover:underline underline">
+                  <p class="flex gap-4 relative items-start">{stack}</p>
+                </div>
               ))
             }
           </div>

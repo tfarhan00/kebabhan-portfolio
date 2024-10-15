@@ -1,9 +1,9 @@
 export const experiences = [
   {
     year: "2024",
-    title: "Senior Software Engineer",
+    title: "Software Engineer",
     company: "Engowl Studio",
-    date: "January 2024 - Present",
+    date: "January 2024 - January 2025",
   },
   {
     year: "2023",
