@@ -3,157 +3,213 @@ import { experiences } from "../data/experiences";
 import { works } from "../data/works";
 import { stacks } from "../data/stacks";
 import PageLayout from "../layouts/PageLayout.astro";
+import { Image } from "astro:assets";
+import myBgImage from "../assets/my-bg.png";
 ---
 
 <PageLayout title="Kebabhan">
-  <!-- Briefing -->
-  <div class="w-full grid grid-cols-10">
-    <div
-      class="col-span-10 xl:col-span-4 flex flex-col gap-6 font-news text-sm tracking-slight leading-5 mt-6 xl:mt-0 relative"
-    >
-      <p>
-        Hi, I'm Tengku Farhan. a Full-stack dev (lean Front-end) based in Jakarta.
-      </p>
-      <p>
-        Currently building at Engowl Studio, but I'm open to remote work opportunities.
-      </p>
-
-      <div>
-        <img
-          src="/my-bg.png"
-          alt="Kebabhan Speech"
-          class="w-full object-contain"
-        />
-        <div class="flex items-start text-neutral-400 mt-4 gap-2">
+  <div
+    class="w-full fixed top-0 left-0 flex justify-center z-[99] pointer-events-none"
+  >
+    <div class="w-full max-w-7xl flex justify-start">
+      <div
+        class="bg-sunny px-4 py-2 relative size-12 flex items-center justify-center group pointer-events-auto overflow-hidden"
+      >
+        <h1
+          class="font-manrope text-white text-2xl absolute top-0 left-1 transition duration-300 ease-in-out group-hover:scale-[0.9] group-hover:-translate-x-2 group-hover:-translate-y-2.5"
+        >
+          Kh
+        </h1>
+        <div
+          class="text-background absolute bottom-0 right-0 size-4 origin-bottom-right scale-0 transition duration-300 ease-in-out group-hover:scale-100"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="12"
-            height="12"
-            viewBox="0 0 24 24"
             fill="none"
-            stroke="currentColor"
+            viewBox="0 0 24 24"
             stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-corner-down-right"
-            ><polyline points="15 10 20 15 15 20"></polyline><path
-              d="M4 4v7a4 4 0 0 0 4 4h12"></path></svg
+            stroke="currentColor"
+            class="size-full"
           >
-          <p class="text-xs text-neutral-400">
-            Me at ETHGlobal Singapore <br />with my team <a
-              target="_blank"
-              href="https://engowl.studio"
-              class="hover:underline text-neutral-500 inline-flex items-center"
-            >
-              @engowl.studio
-              <span class="inline-block">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-arrow-up-right"
-                  ><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg
-                >
-              </span>
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- Other Details -->
-    <div class="col-span-10 xl:col-span-6 mt-6 xl:mt-0">
-      <div class="flex flex-col xl:items-center">
-        <div class="flex flex-col gap-5 w-full max-w-md">
-          <h2 class="font-medium font-manrope text-lg">Experience</h2>
-          <div class="flex flex-col gap-4 font-news relative">
-            <div
-              class="w-[1px] h-[calc(100%-18px)] xl:h-[calc(100%-21px)] absolute left-6 bg-neutral-600 top-2.5"
-            >
-            </div>
-            {
-              experiences.map((exp) => (
-                <div class="flex gap-4 relative items-start">
-                  <div class="w-12 bg-background py-1 flex justify-center text-[10px]">
-                    {exp.year}
-                  </div>
-                  <div class="flex flex-col gap-1.5">
-                    <h3 class="text-sm font-medium">{exp.title}</h3>
-                    <p class="text-xs text-neutral-500 tracking-slight">
-                      {exp.company}
-                    </p>
-                  </div>
-                </div>
-              ))
-            }
-            <div class="flex gap-4 mt-2 relative items-center">
-              <img
-                src="/circle-sketch.png"
-                alt="sketched-square"
-                class="absolute w-12 lg:w-[56px] h-11 bg-background -top-2 -left-0 md:-top-3 md:-left-[5px] object-contain"
-              />
-              <div
-                class="w-12 py-1 flex items-center justify-center text-[10px] relative"
-              >
-                <p class="relative">START</p>
-              </div>
-              <p class="italic text-xs xl:text-sm tracking-slight text-sunny">
-                In early 2022, I wrote my first Express webapp.
-            </div>
-          </div>
-        </div>
-
-        <!-- Works -->
-        <div class="flex flex-col gap-5 w-full max-w-md mt-8">
-          <h1 class="font-medium font-manrope text-lg">Works</h1>
-          <div class="flex flex-col gap-2 font-news relative">
-            {
-              works.map((work) => (
-                <a
-                  href={work.link}
-                  target="_blank"
-                  class="flex items-center gap-1 hover:underline"
-                >
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <p class="flex gap-4 relative items-start">{work.title}</p>
-                </a>
-              ))
-            }
-          </div>
-        </div>
-
-        <!-- Stack -->
-        <div class="flex flex-col gap-5 w-full max-w-md mt-8">
-          <h1 class="font-medium font-manrope text-lg">Stacks</h1>
-          <div class="flex flex-wrap gap-2 font-news relative text-sm max-w-xs">
-            {
-              stacks.map((stack) => (
-                <div class="flex items-center gap-1 hover:underline underline">
-                  <p class="flex gap-4 relative items-start">{stack}</p>
-                </div>
-              ))
-            }
-          </div>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25"></path>
+          </svg>
         </div>
       </div>
     </div>
   </div>
+
+  <main class="w-full flex flex-col px-5 md:px-12 items-center">
+    <div class="w-full flex justify-end max-w-7xl pt-5 items-center">
+      <div class="w-full flex justify-end"></div>
+    </div>
+    <div class="w-full flex flex-col lg:flex-row grow max-w-7xl mt-16">
+      <!-- Briefing -->
+      <div class="flex-1 grid grid-cols-10">
+        <div
+          class="col-span-10 xl:col-span-7 flex flex-col gap-6 font-news text-sm tracking-slight leading-5 mt-6 xl:mt-0 relative"
+        >
+          <div class="flex flex-col gap-10">
+            <p>
+              Hi, I'm Tengku Farhan. a Full-stack engineer based in Jakarta.
+            </p>
+            <p>
+              Currently building at <span class="text-sunny">Elements </span>,
+              but I'm open to remote work opportunities.
+            </p>
+          </div>
+
+          <div>
+            <Image
+              src={myBgImage}
+              alt="Kebabhan Speech"
+              class="w-full object-contain"
+              loading="eager"
+            />
+            <div class="flex items-start text-neutral-400 mt-4 gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-corner-down-right"
+                ><polyline points="15 10 20 15 15 20"></polyline><path
+                  d="M4 4v7a4 4 0 0 0 4 4h12"></path></svg
+              >
+              <p class="text-xs text-neutral-400">
+                Me at ETHGlobal Singapore <br />with my team <a
+                  target="_blank"
+                  href="https://engowl.studio"
+                  class="hover:underline text-neutral-500 inline-flex items-center"
+                >
+                  @engowl.studio
+                  <span class="inline-block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-up-right"
+                      ><path d="M7 7h10v10"></path><path d="M7 17 17 7"
+                      ></path></svg
+                    >
+                  </span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Other Details -->
+      <div class="flex-1">
+        <div class="w-full col-span-10 xl:col-span-6 mt-6 xl:mt-0">
+          <div class="flex flex-col xl:items-center">
+            <div class="flex flex-col gap-5 w-full max-w-md">
+              <h2 class="font-medium font-manrope text-lg">Experience</h2>
+              <div class="flex flex-col gap-4 font-news relative">
+                <div
+                  class="w-[1px] h-[calc(100%-18px)] xl:h-[calc(100%-21px)] absolute left-6 bg-neutral-600 top-2.5"
+                >
+                </div>
+                {
+                  experiences.map((exp) => (
+                    <div class="flex gap-4 relative items-start">
+                      <div class="w-12 bg-background py-1 flex justify-center text-[10px]">
+                        {exp.year}
+                      </div>
+                      <div class="flex flex-col gap-1.5">
+                        <h3 class="text-sm font-medium">{exp.title}</h3>
+                        <p class="text-xs text-neutral-500 tracking-slight">
+                          {exp.company}
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                }
+                <div class="flex gap-4 mt-2 relative items-center">
+                  <img
+                    src="/circle-sketch.png"
+                    alt="sketched-square"
+                    class="absolute w-12 lg:w-[56px] h-11 bg-background -top-2 -left-0 md:-top-3 md:-left-[5px] object-contain"
+                  />
+                  <div
+                    class="w-12 py-1 flex items-center justify-center text-[10px] relative"
+                  >
+                    <p class="relative">START</p>
+                  </div>
+                  <p
+                    class="italic text-xs xl:text-sm tracking-slight text-sunny"
+                  >
+                    In early 2022, I made my first website!.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Works -->
+              <div class="flex flex-col gap-5 w-full max-w-md mt-8">
+                <h1 class="font-medium font-manrope text-lg">Works</h1>
+                <div class="flex flex-col gap-2 font-news relative">
+                  {
+                    works.map((work) => (
+                      <a
+                        href={work.link}
+                        target="_blank"
+                        class="flex items-center gap-1 hover:underline"
+                      >
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                        <p class="flex gap-4 relative items-start">
+                          {work.title}
+                        </p>
+                      </a>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <!-- Stack -->
+              <div class="flex flex-col gap-5 w-full max-w-md mt-8">
+                <h1 class="font-medium font-manrope text-lg">Stacks</h1>
+                <div
+                  class="flex flex-wrap gap-2 font-news relative text-sm max-w-xs"
+                >
+                  {
+                    stacks.map((stack) => (
+                      <div class="flex items-center gap-1 hover:underline underline">
+                        <p class="flex gap-4 relative items-start">{stack}</p>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </PageLayout>
