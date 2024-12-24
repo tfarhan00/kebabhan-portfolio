@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         news: ["'Newsreader Variable'", "serif"],
         manrope: ["'Manrope Variable'", "sans-serif"],
+        virgil: ["Virgil", "sans-serif"],
       },
       maxWidth: {
         "8xl": "1440px",

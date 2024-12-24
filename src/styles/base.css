@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Virgil";
+  src: url("/fonts/Virgil.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   html {
     @apply bg-background;
