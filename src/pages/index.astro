@@ -3,8 +3,6 @@ import { experiences } from "../data/experiences";
 import { works } from "../data/works";
 import { stacks } from "../data/stacks";
 import PageLayout from "../layouts/PageLayout.astro";
-import { Image } from "astro:assets";
-import myBgImage from "../assets/my-bg.png";
 ---
 
 <PageLayout title="Kebabhan">
@@ -56,17 +54,16 @@ import myBgImage from "../assets/my-bg.png";
               Hi, I'm Tengku Farhan. a Full-stack engineer based in Jakarta.
             </p>
             <p>
-              Currently building at <span class="text-sunny">Elements </span>,
-              but I'm open to remote work opportunities.
+              Currently building at <span class="text-sunny">Engowl Studio</span
+              >, but I'm open to remote work opportunities.
             </p>
           </div>
 
           <div>
-            <Image
-              src={myBgImage}
+            <img
+              src="/my-bg.png"
               alt="Kebabhan Speech"
               class="w-full object-contain"
-              loading="eager"
             />
             <div class="flex items-start text-neutral-400 mt-4 gap-2">
               <svg
