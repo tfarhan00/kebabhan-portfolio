@@ -32,4 +32,37 @@ export const works = [
       fallback: "",
     },
   },
+  {
+    title: "Bondlink",
+    link: "https://bondlink-landing-new.vercel.app",
+    desc: "Decentralized platform backed with USDB token",
+    category: "Utility",
+    showcase_img: {
+      type: "img",
+      src: "/assets/images/works/tofuployer.png",
+      fallback: "",
+    },
+  },
+  {
+    title: "Whales Money",
+    link: "https://whales-money-landing.vercel.app",
+    desc: "Decentralized platform backed with WUSD token",
+    category: "Utility",
+    showcase_img: {
+      type: "img",
+      src: "/assets/images/works/tofuployer.png",
+      fallback: "",
+    },
+  },
+  {
+    title: "Megapix AI",
+    link: "https://megapix.ai",
+    desc: "AI Ultility token",
+    category: "Utility",
+    showcase_img: {
+      type: "img",
+      src: "/assets/images/works/tofuployer.png",
+      fallback: "",
+    },
+  },
 ];

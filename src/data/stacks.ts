@@ -6,7 +6,8 @@ export const stacks = [
   "FastAPI",
   "React",
   "Vue",
+  "Svelte",
   "Web3",
-  "Solana",
-  "Ethereum",
+  "Solana.js",
+  "Ethers.js",
 ];
