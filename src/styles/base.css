@@ -17,3 +17,63 @@
     @apply font-manrope text-neutral-600;
   }
 }
+
+.kh-closed {
+  background-color: #eb5e28; /* Example sunny color, replace with your actual color */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  width: 3rem; /* Assuming size-12 means 3rem; adjust if needed */
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.kh-open {
+  background-color: #eb5e28;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Assuming size-12 means 3rem; adjust if needed */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.kh-title {
+  font-family: "Manrope Variable", sans-serif; /* Adjust to your font setup */
+  color: #ffffff; /* White text */
+  font-size: 1.2rem; /* 2xl in Tailwind = 1.5rem */
+  position: absolute;
+  top: 0;
+  left: 0.25rem; /* 1 in Tailwind = 0.25rem */
+  transition: transform 200ms ease-in-out;
+}
+
+.dev-title {
+  padding-left: 0.25rem; /* 1 in Tailwind = 0.25rem */
+  padding-right: 0.25rem;
+  padding-top: 0.125rem; /* 0.5 in Tailwind = 0.125rem */
+  padding-bottom: 0.125rem;
+  font-size: 0.625rem; /* text-[10px] in Tailwind = 0.625rem */
+  background-color: #f9f7f3; /* Replace bg-background with your background color */
+  color: #eb5e28; /* Replace text-sunny with your sunny color */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom right;
+  transform: scale(0); /* Initial scale set to 0 */
+  transition: transform 200ms ease-in-out;
+}
+
+.kh-closed:hover .dev-title {
+  transform: scale(1); /* Scale to 100% on hover */
+}

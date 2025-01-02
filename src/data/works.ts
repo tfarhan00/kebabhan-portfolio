@@ -23,7 +23,7 @@ export const works = [
   },
   {
     title: "Tofuployer",
-    link: "https://tofuployer.app",
+    link: "https://token-deployer-mu.vercel.app",
     desc: "Super easy solana token deployer",
     category: "Utility",
     showcase_img: {
