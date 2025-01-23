@@ -34,7 +34,7 @@ export const works = [
   },
   {
     title: "Bondlink",
-    link: "https://bondlink-landing-new.vercel.app",
+    link: "https://app.bondlink.finance",
     desc: "Decentralized platform backed with USDB token",
     category: "Utility",
     showcase_img: {

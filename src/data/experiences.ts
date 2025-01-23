@@ -1,7 +1,7 @@
 export const experiences = [
   {
     year: "2024",
-    title: "Web3 Software Engineer",
+    title: "Web3 Full-stack Engineer",
     company: "Engowl Studio",
     date: "January 2024 - January 2025",
   },
