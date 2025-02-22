@@ -18,17 +18,17 @@ function animateEasterEggText(isOpen: boolean) {
     tween = gsap.to(easterEggTextEls, {
       y: "0%",
       opacity: 1,
-      ease: "elastic",
-      duration: 0.6,
-      stagger: 0.1,
+      ease: "power2.out",
+      duration: 0.4,
+      stagger: 0.05,
     });
   } else {
     tween = gsap.to(easterEggTextEls, {
       y: "100%",
-      ease: "elastic.in",
+      ease: "power2.out",
       opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
+      duration: 0.4,
+      stagger: 0.05,
     });
   }
 

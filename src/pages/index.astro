@@ -3,13 +3,14 @@ import { experiences } from "../data/experiences";
 import { works } from "../data/works";
 import { stacks } from "../data/stacks";
 import PageLayout from "../layouts/PageLayout.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <PageLayout title="Kebabhan">
   <div
     class="w-full fixed top-0 left-0 flex justify-center z-[99] pointer-events-none"
   >
-    <div class="w-full max-w-7xl flex justify-start">
+    <div class="w-full max-w-3xl flex justify-start">
       <button id="kh-button" class="kh-closed">
         <h1 class="kh-title">Kh</h1>
         <div class="dev-title">dev</div>
@@ -36,11 +37,14 @@ import PageLayout from "../layouts/PageLayout.astro";
     </div>
   </div>
 
-  <main class="w-full flex flex-col px-5 md:px-12 items-center">
+  <main class="w-full flex flex-col px-5 md:px-12 items-center pb-8">
     <div class="w-full flex justify-end max-w-7xl pt-5 items-center">
       <div class="w-full flex justify-end"></div>
     </div>
-    <div class="w-full flex flex-col lg:flex-row grow max-w-7xl mt-16">
+    <div class="w-full flex flex-col grow max-w-3xl items-start mt-16 relative">
+      <div class="fixed origin-left -right-24 top-14 rotate-90">
+        <Footer />
+      </div>
       <!-- Briefing -->
       <div class="flex-1 grid grid-cols-10">
         <div
@@ -107,7 +111,7 @@ import PageLayout from "../layouts/PageLayout.astro";
             <img
               src="/my-bg.png"
               alt="Kebabhan Speech"
-              class="w-full object-contain"
+              class="w-full object-contain h-72"
             />
             <div class="flex items-start text-neutral-400 mt-4 gap-2">
               <svg
@@ -125,36 +129,18 @@ import PageLayout from "../layouts/PageLayout.astro";
                   d="M4 4v7a4 4 0 0 0 4 4h12"></path></svg
               >
               <p class="text-xs text-neutral-400">
-                Me at ETHGlobal Singapore <br />with my team <a
-                  target="_blank"
-                  href="https://engowl.studio"
-                  class="hover:underline text-neutral-500 inline-flex items-center"
+                Me at ETHGlobal Singapore <br />with my team <span
+                  class="text-neutral-500 inline-flex items-center"
                 >
                   @engowl.studio
-                  <span class="inline-block">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-arrow-up-right"
-                      ><path d="M7 7h10v10"></path><path d="M7 17 17 7"
-                      ></path></svg
-                    >
-                  </span>
-                </a>
+                </span>
               </p>
             </div>
           </div>
         </div>
       </div>
       <!-- Other Details -->
-      <div class="flex-1">
+      <div class="mt-12">
         <div class="w-full col-span-10 xl:col-span-6 mt-6 xl:mt-0">
           <div class="flex flex-col xl:items-center">
             <div class="flex flex-col gap-5 w-full max-w-md">
