@@ -1,0 +1,176 @@
+---
+import { works } from "../data/works";
+---
+
+<div class="w-full flex flex-col items-start relative">
+  <div
+    class="w-full rounded-3xl border border-white/5 p-4 flex flex-col items-start"
+  >
+    <div class="bg-white/5 px-3 py-1 rounded-full text-sm font-medium">
+      Works
+    </div>
+
+    <div class="w-full flex flex-col items-center my-10">
+      <div
+        class="relative cursor-pointer w-full max-w-[280px] h-11 transition-transform ease-[cubic-bezier(0.25,1,0.5,1)] duration-500"
+        id="stack-container"
+      >
+        <button
+          id="close-button"
+          class="size-10 flex items-center rounded-full transition-all justify-center bg-[#2D2D2D] hover:bg-[#383838] absolute translate-y-0 opacity-0 pointer-events-none z-50 left-1/2 -translate-x-1/2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-x-icon lucide-x"
+            ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+          >
+        </button>
+
+        {
+          works.map((work, idx) => (
+            <div
+              class:list={[
+                "work-item",
+                {
+                  "work-item-0": idx === 0,
+                  "work-item-1": idx === 1,
+                  "work-item-2": idx === 2,
+                },
+                {
+                  "hover:bg-[#383838]": idx === 0,
+                },
+              ]}
+              style={`transition: all 0.4s cubic-bezier(0.25,1,0.5,1)`}
+              data-index={idx}
+            >
+              <p class="flex gap-4 relative items-start text-sm ml-1">
+                {work.title}
+              </p>
+
+              <a
+                href={work.link}
+                target="_blank"
+                class="text-xs ml-auto bg-sunny/5 transition-colors hover:bg-sunny/10 text-sunny px-3 h-full flex items-center gap-1 rounded-lg"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-globe-icon lucide-globe"
+                >
+                  <>
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                    <path d="M2 12h20" />
+                  </>
+                </svg>
+                <p class="font-medium">Preview</p>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style scoped>
+  #proxy-hover {
+    bottom: 0;
+    top: auto; /* Ensures it expands from bottom */
+    transform-origin: bottom; /* Set transform origin to bottom */
+  }
+  .work-item {
+    @apply flex w-full items-center h-11 gap-1 absolute bg-[#2D2D2D] p-2 rounded-xl border border-white/5 z-20;
+  }
+
+  .work-item-normal {
+    @apply brightness-100 z-10;
+  }
+
+  .work-item-0 {
+    @apply translate-y-0 brightness-100 z-30;
+  }
+
+  .work-item-1 {
+    @apply -translate-y-2 brightness-90 scale-[0.97] z-20;
+  }
+
+  .work-item-2 {
+    @apply -translate-y-4 brightness-75 scale-[0.94] z-10;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector("#stack-container") as HTMLElement;
+    const closeBtn = document.querySelector("#close-button") as HTMLElement;
+    const backdrop = document.querySelector("#blur-work-bg") as HTMLElement;
+    const worksItems = document.querySelectorAll(
+      ".work-item",
+    ) as any as HTMLElement[];
+
+    container.addEventListener("click", () => {
+      backdrop.style.opacity = "100%";
+      closeBtn.style.opacity = "100%";
+      closeBtn.style.transform = "translate3d(-50%, 56px, 0px)";
+      closeBtn.style.pointerEvents = "auto";
+
+      worksItems.forEach((el, i) => {
+        const h = el.offsetHeight;
+        el.style.transform = `translateY(-${i * (10 + h)}px)`;
+        if (i === 0) {
+          el.style.zIndex = "50";
+          el.classList.remove("work-item-0");
+        } else if (i === 1) {
+          el.style.zIndex = "40";
+          el.classList.remove("work-item-1");
+        } else if (i === 2) {
+          el.style.zIndex = "30";
+          el.classList.remove("work-item-2");
+        } else {
+          el.style.opacity = "100%";
+        }
+      });
+    });
+
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      backdrop.style.opacity = "0%";
+      closeBtn.style.opacity = "0%";
+      closeBtn.style.transform = "translate3d(-50%, 0px, 0px)";
+      closeBtn.style.pointerEvents = "none";
+
+      worksItems.forEach((el, i) => {
+        const h = el.offsetHeight;
+        el.classList.remove("work-item-normal");
+        if (i === 0) {
+          el.classList.add("work-item-0");
+        } else if (i === 1) {
+          el.style.transform = `translateY(-8px)`;
+          el.classList.add("work-item-1");
+        } else if (i === 2) {
+          el.style.transform = `translateY(-16px)`;
+          el.classList.add("work-item-2");
+        } else {
+          el.style.transform = `translateY(0px)`;
+          el.style.opacity = "0%";
+        }
+      });
+    });
+  });
+</script>

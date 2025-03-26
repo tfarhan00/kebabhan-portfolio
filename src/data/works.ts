@@ -1,5 +1,16 @@
 export const works = [
   {
+    title: "Syarifah Widad",
+    link: "https://syarifahwidad.com",
+    desc: "Independent Fashion Marketplace",
+    category: "Marketplace",
+    showcase_img: {
+      type: "img",
+      src: "/assets/images/works/tofuployer.png",
+      fallback: "",
+    },
+  },
+  {
     title: "Netra",
     link: "https://netra.live",
     desc: "Royalty sharing platform that allows fans to co-own a song, consequently supporting their favorite artists while earning royalties alongside them.",
