@@ -56,7 +56,7 @@ export const works = [
   },
   {
     title: "Whales Money",
-    link: "https://whales-money-landing.vercel.app",
+    link: "https://whales.money",
     desc: "Decentralized platform backed with WUSD token",
     category: "Utility",
     showcase_img: {
