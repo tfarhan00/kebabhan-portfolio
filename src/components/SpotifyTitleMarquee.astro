@@ -9,7 +9,7 @@ export interface Props {
 const { title, artist } = Astro.props;
 ---
 
-<div class="relative">
+<div class="relative w-full">
   <!-- Shadow text element to detect width of the title -->
   <div
     id="titleRef"
@@ -21,10 +21,7 @@ const { title, artist } = Astro.props;
     <p>{artist}</p>
   </div>
 
-  <div
-    id="marqueeContainer"
-    class="flex overflow-hidden max-w-[115px] relative"
-  >
+  <div id="marqueeContainer" class="flex overflow-hidden w-full relative">
     <MarqueeText>
       <div class="flex items-center gap-1 whitespace-nowrap">
         <p>{title}</p>
