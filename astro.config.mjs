@@ -12,7 +12,9 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
-
+  image: {
+    domains: ["kebabhan.dev"],
+  },
   output: "server",
   adapter: vercel({
     isr: {
