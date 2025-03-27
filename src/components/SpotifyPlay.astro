@@ -13,7 +13,7 @@ import SpotifyTitleMarquee from "./SpotifyTitleMarquee.astro";
       target="_blank"
       class="w-full overflow-hidden flex cursor-pointer items-center gap-3 rounded-full text-xs hover:opacity-80 bg-white/5 border border-white/5 p-1"
     >
-      <div class="size-5 overflow-hidden relative rounded-full">
+      <div class="size-5 overflow-hidden relative rounded-full shrink-0">
         <img
           src={song.coverUrl}
           alt={song.title}
@@ -21,8 +21,8 @@ import SpotifyTitleMarquee from "./SpotifyTitleMarquee.astro";
           class="w-full h-full object-cover lg:-rotate-90"
         />
       </div>
-      <div class="flex items-center gap-1 flex-1">
-        <div class="flex-1">
+      <div class="flex items-center gap-1 flex-1 max-w-max overflow-hidden">
+        <div class="flex-1 max-w-max overflow-hidden">
           <SpotifyTitleMarquee title={song.title} artist={song.artist} />
         </div>
         <svg
