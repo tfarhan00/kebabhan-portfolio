@@ -18,9 +18,7 @@ import SpotifyPlay from "../components/SpotifyPlay.astro";
     <div class="w-full max-w-sm">
       <!-- Glance -->
       <div class="w-full relative group flex flex-col items-center">
-        <div
-          class="w-full relative rounded-full flex items"
-        >
+        <div class="w-full relative rounded-full flex items">
           <div class="size-9 rounded-full bg-blue-500 overflow-hidden">
             <img src={"/me.jpg"} alt="" class="size-full object-cover" />
           </div>
@@ -49,11 +47,7 @@ import SpotifyPlay from "../components/SpotifyPlay.astro";
           </a>
         </div>
 
-        <div class="mt-5 flex w-full gap-2 justify-between">
-          <div class="flex-1 overflow-hidden max-w-max">
-            <SpotifyPlay />
-          </div>
-
+        <div class="mt-6 flex w-full gap-2 justify-between">
           <div
             class="shrink-0 flex flex-wrap items-center gap-3 font-news text-sm"
           >
@@ -117,21 +111,19 @@ import SpotifyPlay from "../components/SpotifyPlay.astro";
 
       <div class="w-full relative mt-6">
         <div class="w-full">
-
           <About />
         </div>
         <div class="w-full mt-6">
-
           <Works />
         </div>
       </div>
 
-    
-
-      <div class="w-full flex flex-col items-start mt-6">
+      <div class="w-full flex items-center justify-between gap-2 mt-6">
         <p class="text-xs text-neutral-500">2025&copy; Kebabhan</p>
+        <div class="flex-1 max-w-[180px] overflow-hidden">
+          <SpotifyPlay />
+        </div>
       </div>
     </div>
   </main>
 </Layout>
-
