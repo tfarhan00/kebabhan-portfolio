@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Works from "../components/Works.astro";
 import About from "../components/About.astro";
@@ -20,7 +19,7 @@ import SpotifyPlay from "../components/SpotifyPlay.astro";
       <!-- Glance -->
       <div class="w-full relative group flex flex-col items-center">
         <div
-          class="bg-[#2D2D2D] w-full relative rounded-full border border-white/5 p-2 flex items"
+          class="w-full relative rounded-full flex items"
         >
           <div class="size-9 rounded-full bg-blue-500 overflow-hidden">
             <img src={"/me.jpg"} alt="" class="size-full object-cover" />
@@ -50,13 +49,13 @@ import SpotifyPlay from "../components/SpotifyPlay.astro";
           </a>
         </div>
 
-        <div class="mt-2 flex w-full gap-2 justify-between">
+        <div class="mt-5 flex w-full gap-2 justify-between">
           <div class="flex-1 overflow-hidden max-w-max">
             <SpotifyPlay />
           </div>
 
           <div
-            class="shrink-0 flex flex-wrap items-center gap-3 font-news text-sm bg-white/5 px-2 py-1 rounded-full border border-white/5"
+            class="shrink-0 flex flex-wrap items-center gap-3 font-news text-sm"
           >
             <a
               href="https://github.com/tfarhan00"
@@ -116,142 +115,23 @@ import SpotifyPlay from "../components/SpotifyPlay.astro";
         </div>
       </div>
 
-      <div class="w-full relative mt-4 h-48">
-        <div
-          id="content"
-          data-selected="false"
-          class:list={[
-            "size-full absolute top-0 left-0 transition-all opacity-50 translate-y-0 data-[selected=true]:opacity-100",
-            "data-[selected=false]:translate-y-3 data-[selected=true]:z-10",
-            "data-[selected=false]:scale-90 origin-bottom",
-          ]}
-        >
-          <Works />
-        </div>
-        <div
-          id="content"
-          data-selected="true"
-          class:list={[
-            "size-full absolute top-0 left-0 transition-all opacity-50 translate-y-0 data-[selected=true]:opacity-100",
-            "data-[selected=false]:translate-y-3 data-[selected=true]:z-10",
-            "data-[selected=false]:scale-90 origin-bottom",
-          ]}
-        >
+      <div class="w-full relative mt-6">
+        <div class="w-full">
+
           <About />
         </div>
-      </div>
+        <div class="w-full mt-6">
 
-      <div class="w-full flex justify-center mt-8">
-        <div class="flex items-center gap-3">
-          <button
-            id="button-left"
-            class="bg-white/5 transition-colors hover:bg-white/10 rounded-full size-9 flex items-center justify-center"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevron-left-icon lucide-chevron-left"
-              ><path d="m15 18-6-6 6-6"></path></svg
-            >
-          </button>
-          <div
-            id="pages"
-            class="bg-sunny/10 rounded-full flex items-center gap-1 px-3 text-xs py-2 text-sunny"
-          >
-            <div
-              id="page"
-              data-selected="true"
-              class="bg-sunny/50 rounded-full h-1 w-1 data-[selected=true]:bg-sunny data-[selected=true]:w-5 transition-all"
-            >
-            </div>
-            <div
-              id="page"
-              class="bg-sunny/50 rounded-full h-1 w-1 data-[selected=true]:bg-sunny data-[selected=true]:w-5 transition-all"
-            >
-            </div>
-          </div>
-          <button
-            id="button-right"
-            class="bg-white/5 transition-colors hover:bg-white/10 rounded-full size-9 flex items-center justify-center"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevron-right-icon lucide-chevron-right"
-              ><path d="m9 18 6-6-6-6"></path></svg
-            >
-          </button>
+          <Works />
         </div>
       </div>
 
-      <div class="w-full flex flex-col items-center mt-6">
+    
+
+      <div class="w-full flex flex-col items-start mt-6">
         <p class="text-xs text-neutral-500">2025&copy; Kebabhan</p>
       </div>
     </div>
   </main>
 </Layout>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const indicators = document.querySelectorAll(
-      "#page",
-    ) as any as HTMLElement[];
-    const contents = document.querySelectorAll(
-      "#content",
-    ) as any as HTMLElement[];
-
-    const buttonLeft = document.querySelector("#button-left") as HTMLElement;
-    const buttonRight = document.querySelector("#button-right") as HTMLElement;
-
-    let currentPage = 0;
-
-    function checkIndicators() {
-      indicators.forEach((indicator, idx) => {
-        if (idx === currentPage) {
-          indicator.setAttribute("data-selected", "true");
-        } else {
-          indicator.setAttribute("data-selected", "false");
-        }
-      });
-    }
-
-    function checkContents() {
-      contents.forEach((content, idx) => {
-        const reverseIdx = contents.length - 1 - idx;
-        if (reverseIdx === currentPage) {
-          content.setAttribute("data-selected", "true");
-        } else {
-          content.setAttribute("data-selected", "false");
-        }
-      });
-    }
-
-    checkIndicators();
-    checkContents();
-
-    buttonLeft.addEventListener("click", () => {
-      currentPage = currentPage <= 0 ? 1 : currentPage - 1;
-      checkIndicators();
-      checkContents();
-    });
-    buttonRight.addEventListener("click", () => {
-      currentPage = currentPage >= 1 ? 0 : currentPage + 1;
-      checkIndicators();
-      checkContents();
-    });
-  });
-</script>
