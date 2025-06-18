@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 
 import tailwind from "@astrojs/tailwind";
 
-import vercel from "@astrojs/vercel/serverless";
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,9 +16,7 @@ export default defineConfig({
     domains: ["kebabhan.dev"],
   },
   output: "server",
-  adapter: vercel({
-    isr: {
-      expiration: 60 * 60,
-    },
+  adapter: node({
+    mode: "standalone",
   }),
 });
